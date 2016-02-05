@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Hold date:</strong>
+  <%= @speech.hold_date %>
+</p>
+
+<p>
+  <strong>Presenter1:</strong>
+  <%= @speech.presenter1 %>
+</p>
+
+<p>
+  <strong>Presenter2:</strong>
+  <%= @speech.presenter2 %>
+</p>
+
+<p>
+  <strong>Theme1:</strong>
+  <%= @speech.theme1 %>
+</p>
+
+<p>
+  <strong>Theme2:</strong>
+  <%= @speech.theme2 %>
+</p>
+
+<p>
+  <strong>Rails env=development:</strong>
+  <%= @speech.RAILS_ENV=development %>
+</p>
+
+<%= link_to 'Edit', edit_speech_path(@speech) %> |
+<%= link_to 'Back', speeches_path %>

@@ -1,0 +1,41 @@
+<%= form_for(@speech) do |f| %>
+  <% if @speech.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@speech.errors.count, "error") %> prohibited this speech from being saved:</h2>
+
+      <ul>
+      <% @speech.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :hold_date %><br>
+    <%= f.date_select :hold_date %>
+  </div>
+  <div class="field">
+    <%= f.label :presenter1 %><br>
+    <%= f.text_field :presenter1 %>
+  </div>
+  <div class="field">
+    <%= f.label :presenter2 %><br>
+    <%= f.text_field :presenter2 %>
+  </div>
+  <div class="field">
+    <%= f.label :theme1 %><br>
+    <%= f.text_area :theme1 %>
+  </div>
+  <div class="field">
+    <%= f.label :theme2 %><br>
+    <%= f.text_area :theme2 %>
+  </div>
+  <div class="field">
+    <%= f.label :RAILS_ENV=development %><br>
+    <%= f.text_field :RAILS_ENV=development %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
