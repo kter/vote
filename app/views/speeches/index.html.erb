@@ -10,7 +10,6 @@
       <th>Presenter2</th>
       <th>Theme1</th>
       <th>Theme2</th>
-      <th>Rails env=development</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -23,7 +22,6 @@
         <td><%= speech.presenter2 %></td>
         <td><%= speech.theme1 %></td>
         <td><%= speech.theme2 %></td>
-        <td><%= speech.RAILS_ENV=development %></td>
         <td><%= link_to 'Show', speech %></td>
         <td><%= link_to 'Edit', edit_speech_path(speech) %></td>
         <td><%= link_to 'Destroy', speech, method: :delete, data: { confirm: 'Are you sure?' } %></td>
