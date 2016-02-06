@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hold_date: 2016-02-06
+  presenter: MyString
+  score: 1
+  comment: MyText
+
+two:
+  hold_date: 2016-02-06
+  presenter: MyString
+  score: 1
+  comment: MyText
