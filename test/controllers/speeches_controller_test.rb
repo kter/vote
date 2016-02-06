@@ -18,7 +18,7 @@ class SpeechesControllerTest < ActionController::TestCase
 
   test "should create speech" do
     assert_difference('Speech.count') do
-      post :create, speech: { RAILS_ENV=development: @speech.RAILS_ENV=development, hold_date: @speech.hold_date, presenter1: @speech.presenter1, presenter2: @speech.presenter2, theme1: @speech.theme1, theme2: @speech.theme2 }
+      post :create, speech: { hold_date: @speech.hold_date, presenter1: @speech.presenter1, presenter2: @speech.presenter2, theme1: @speech.theme1, theme2: @speech.theme2 }
     end
 
     assert_redirected_to speech_path(assigns(:speech))
@@ -35,7 +35,7 @@ class SpeechesControllerTest < ActionController::TestCase
   end
 
   test "should update speech" do
-    patch :update, id: @speech, speech: { RAILS_ENV=development: @speech.RAILS_ENV=development, hold_date: @speech.hold_date, presenter1: @speech.presenter1, presenter2: @speech.presenter2, theme1: @speech.theme1, theme2: @speech.theme2 }
+    patch :update, id: @speech, speech: { hold_date: @speech.hold_date, presenter1: @speech.presenter1, presenter2: @speech.presenter2, theme1: @speech.theme1, theme2: @speech.theme2 }
     assert_redirected_to speech_path(assigns(:speech))
   end
 

@@ -6,7 +6,6 @@ one:
   presenter2: MyString
   theme1: MyText
   theme2: MyText
-  RAILS_ENV=development: MyString
 
 two:
   hold_date: 2016-02-05
@@ -14,4 +13,3 @@ two:
   presenter2: MyString
   theme1: MyText
   theme2: MyText
-  RAILS_ENV=development: MyString
