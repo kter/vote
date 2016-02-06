@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'top/index'
+
   resources :votes
   resources :speeches
   # The priority is based upon order of creation: first created -> highest priority.
