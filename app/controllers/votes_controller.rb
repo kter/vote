@@ -15,7 +15,8 @@ class VotesController < ApplicationController
   # GET /votes/new
   def new
     @vote = Vote.new
-    @hold_date = Speech.first.hold_date
+    @hold_date = Speech.last.hold_date
+    @speech = Speech.last
   end
 
   # GET /votes/1/edit
@@ -28,6 +29,7 @@ class VotesController < ApplicationController
     @vote = Vote.new(vote_params)
 
     @vote.hold_date = Speech.first.hold_date
+    @vote.presenter = params[:presenter]
 
     respond_to do |format|
       if @vote.save
