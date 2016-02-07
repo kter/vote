@@ -1,3 +1,4 @@
+<% @vote.hold_date = @hold_date %>
 <%= form_for(@vote) do |f| %>
   <% if @vote.errors.any? %>
     <div id="error_explanation">
@@ -13,7 +14,7 @@
 
   <div class="field">
     <%= f.label :hold_date %><br>
-    <%= f.date_select :hold_date %>
+    <%= @hold_date %>
   </div>
   <div class="field">
     <%= f.label :presenter %><br>

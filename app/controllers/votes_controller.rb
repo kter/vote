@@ -15,6 +15,7 @@ class VotesController < ApplicationController
   # GET /votes/new
   def new
     @vote = Vote.new
+    @hold_date = Speech.first.hold_date
   end
 
   # GET /votes/1/edit
@@ -25,6 +26,8 @@ class VotesController < ApplicationController
   # POST /votes.json
   def create
     @vote = Vote.new(vote_params)
+
+    @vote.hold_date = Speech.first.hold_date
 
     respond_to do |format|
       if @vote.save
