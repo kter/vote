@@ -10,6 +10,8 @@ class SpeechesController < ApplicationController
   # GET /speeches/1
   # GET /speeches/1.json
   def show
+    @presenter1_score = Vote.where(hold_date: @speech.hold_date, presenter: @speech.presenter1).sum(:score)
+    @presenter2_score = Vote.where(hold_date: @speech.hold_date, presenter: @speech.presenter2).sum(:score)
   end
 
   # GET /speeches/new

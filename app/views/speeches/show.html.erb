@@ -11,18 +11,28 @@
 </p>
 
 <p>
+  <strong>Theme:</strong>
+  <%= @speech.theme1 %>
+</p>
+
+<p>
+  <strong>Score:</strong>
+  <%= @presenter1_score %>
+</p>
+
+<p>
   <strong>Presenter2:</strong>
   <%= @speech.presenter2 %>
 </p>
 
 <p>
-  <strong>Theme1:</strong>
-  <%= @speech.theme1 %>
+  <strong>Theme:</strong>
+  <%= @speech.theme2 %>
 </p>
 
 <p>
-  <strong>Theme2:</strong>
-  <%= @speech.theme2 %>
+  <strong>Score:</strong>
+  <%= @presenter2_score %>
 </p>
 
 <%= link_to 'Edit', edit_speech_path(@speech) %> |
