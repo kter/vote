@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   get 'admin/login'
 
-  get 'top/index'
+  root 'top#index'
 
   resources :votes
   resources :speeches

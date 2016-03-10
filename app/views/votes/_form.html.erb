@@ -16,9 +16,10 @@
     <%= f.label :hold_date %><br>
     <%= @hold_date %>
   </div>
+
   <div class="field">
     <%= f.label :presenter %><br>
-    <%= f.select_tag(:presenter, options_for_select([[@speech.presenter1, @speech.presenter1], [@speech.presenter2, @speech.presenter2]])) %>
+    <%= f.label @speech.presenter1 %>
   </div>
   <div class="field">
     <%= f.label :score %><br>
@@ -28,6 +29,20 @@
     <%= f.label :comment %><br>
     <%= f.text_area :comment %>
   </div>
+
+  <div class="field">
+    <%= f.label :presenter %><br>
+    <%= f.label @speech.presenter2 %>
+  </div>
+  <div class="field">
+    <%= f.label :score %><br>
+    <%= f.number_field :score %>
+  </div>
+  <div class="field">
+    <%= f.label :comment %><br>
+    <%= f.text_area :comment %>
+  </div>
+
   <div class="actions">
     <%= f.submit %>
   </div>

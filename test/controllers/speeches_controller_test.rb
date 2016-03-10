@@ -2,7 +2,7 @@ require 'test_helper'
 
 class SpeechesControllerTest < ActionController::TestCase
   setup do
-    @speech = speeches(:one)
+    @speech = speeches("1st_speech")
   end
 
   test "should get index" do

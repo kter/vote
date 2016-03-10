@@ -5,3 +5,27 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Speech.create!(
+  hold_date: "2016-02-05",
+  presenter1: "nagara",
+  presenter2: "natori",
+  theme1: "theme of nagara",
+  theme2: "theme of natori"
+)
+
+Speech.create!(
+  hold_date: "2016-03-05",
+  presenter1: "oi",
+  presenter2: "kitakami",
+  theme1: "theme of oi",
+  theme2: "theme of kitakami"
+)
+
+Speech.create!(
+  hold_date: "2016-04-05",
+  presenter1: "kiso",
+  presenter2: "tama",
+  theme1: "theme of kiso",
+  theme2: "theme of tama"
+)

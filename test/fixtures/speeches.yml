@@ -1,15 +1,15 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
-one:
+1st_speech:
   hold_date: 2016-02-05
-  presenter1: MyString
-  presenter2: MyString
-  theme1: MyText
-  theme2: MyText
+  presenter1: ayako.amamiya
+  presenter2: saya.ishigaki
+  theme1: theme of amamiya
+  theme2: theme of ishigaki
 
-two:
-  hold_date: 2016-02-05
-  presenter1: MyString
-  presenter2: MyString
-  theme1: MyText
-  theme2: MyText
+2nd_speech:
+  hold_date: 2016-03-05
+  presenter1: meibi.kitamura
+  presenter2: toshiaki.kawamura
+  theme1: theme of kitamura
+  theme2: theme of kawamura
