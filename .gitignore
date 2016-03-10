@@ -12,3 +12,8 @@
 !/log/.keep
 /tmp
 Session.vim
+
+# sqlite3
+/db/*.sqlite3
+/db/*.sqlite3-journal
+
