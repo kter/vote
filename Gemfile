@@ -15,7 +15,6 @@ gem 'coffee-rails', '~> 4.1.0'
 gem 'therubyracer', platforms: :ruby
 
 gem 'sqlite3'
-gem 'guard-minitest'
 
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
@@ -48,3 +47,8 @@ group :development do
   gem 'spring'
 end
 
+group :test do
+  gem 'minitest-reporters'
+  gem 'mini_backtrace'
+  gem 'guard-minitest'
+end
