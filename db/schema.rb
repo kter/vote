@@ -13,9 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20160206022319) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "speeches", force: :cascade do |t|
     t.date     "hold_date"
     t.string   "presenter1"
