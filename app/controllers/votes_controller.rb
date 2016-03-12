@@ -14,7 +14,6 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-    @vote = Vote.new
     @hold_date = Speech.last.hold_date
     @speech = Speech.last
   end
@@ -26,18 +25,24 @@ class VotesController < ApplicationController
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
+    @vote1 = Vote.new
+    @vote2 = Vote.new
 
-    @vote.hold_date = Speech.first.hold_date
-    @vote.presenter = params[:presenter]
+    @vote1.hold_date = @vote2.hold_date =  Speech.first.hold_date
+    @vote1.presenter = params[:vote][:presenter1]
+    @vote2.presenter = params[:vote][:presenter2]
+    @vote1.score = params[:vote][:score1]
+    @vote2.score = params[:vote][:score2]
+    @vote1.comment = params[:vote][:comment1]
+    @vote2.comment = params[:vote][:comment2]
 
     respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
+      if @vote1.save && @vote2.save
+        format.html { redirect_to @vote1, notice: 'Vote was successfully created.' }
+        format.json { render :show, status: :created, location: @vote1 }
       else
         format.html { render :new }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
+        format.json { render json: @vote1.errors, status: :unprocessable_entity }
       end
     end
   end
