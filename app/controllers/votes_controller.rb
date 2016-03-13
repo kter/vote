@@ -42,7 +42,7 @@ class VotesController < ApplicationController
         format.json { render :show, status: :created, location: @vote1 }
       else
         format.html { render :new }
-        format.json { render json: @vote1.errors, status: :unprocessable_entity }
+        format.json { render json: @vote1.errors ? @vote1.errors : @vote2.errors, status: :unprocessable_entity }
       end
     end
   end
