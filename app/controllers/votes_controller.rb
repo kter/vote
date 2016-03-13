@@ -36,14 +36,11 @@ class VotesController < ApplicationController
     @vote1.comment = params[:vote][:comment1]
     @vote2.comment = params[:vote][:comment2]
 
-    respond_to do |format|
-      if @vote1.save && @vote2.save
-        format.html { redirect_to @vote1, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote1 }
-      else
-        format.html { render :new }
-        format.json { render json: @vote1.errors ? @vote1.errors : @vote2.errors, status: :unprocessable_entity }
-      end
+    if @vote1.save && @vote2.save
+      redirect_to root_path
+    else
+      flash.now[:danger] = @vote1.errors ? @vote1.errors : @vote2.errors
+      render new
     end
   end
 
