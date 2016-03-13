@@ -36,7 +36,9 @@ class VotesController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = @vote1.errors ? @vote1.errors : @vote2.errors
-      render :new
+      @hold_date = Speech.last.hold_date
+      @speech = Speech.last
+      render new_vote_path
     end
   end
 

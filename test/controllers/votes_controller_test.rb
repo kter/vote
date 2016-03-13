@@ -4,6 +4,8 @@ class VotesControllerTest < ActionController::TestCase
   setup do
     @vote = votes(:one)
     @vote2 = votes(:two)
+    @vote3 = votes(:three)
+    @vote4 = votes(:four)
   end
 
   test "should get index" do
@@ -50,5 +52,19 @@ class VotesControllerTest < ActionController::TestCase
     end
 
     assert_redirected_to votes_path
+  end
+
+  test "should with invalid data" do
+      post :create, vote: {
+        comment1: @vote3.comment,
+        comment2: @vote4.comment,
+        hold_date1: @vote3.hold_date,
+        hold_date2: @vote4.hold_date,
+        presenter1: @vote3.presenter,
+        presenter2: @vote4.presenter,
+        score1: @vote3.score,
+        score2: @vote4.score
+      }
+      assert_template 'votes/new'
   end
 end
