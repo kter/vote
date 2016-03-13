@@ -2,12 +2,20 @@
 
 one:
   hold_date: 2016-02-06
-  presenter: MyString
-  score: 1
-  comment: MyText
-
+  presenter: akari.mamiya
+  score: 3
+  comment: comment
 two:
-  hold_date: 2016-02-06
-  presenter: MyString
-  score: 1
-  comment: MyText
+  presenter: shino.sasaki
+  score: 3
+  comment: comment
+
+three:
+  hold_date: 2016-03-06
+  presenter: kirin.shima 
+  score: 0
+  comment: comment
+four:
+  presenter: raika.hino
+  score: 6
+  comment: comment
