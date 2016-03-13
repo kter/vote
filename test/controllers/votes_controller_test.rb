@@ -39,11 +39,6 @@ class VotesControllerTest < ActionController::TestCase
     assert_response :success
   end
 
-  test "should get edit" do
-    get :edit, id: @vote
-    assert_response :success
-  end
-
   test "should update vote" do
     patch :update, id: @vote, vote: { comment: @vote.comment, hold_date: @vote.hold_date, presenter: @vote.presenter, score: @vote.score }
     assert_redirected_to vote_path(assigns(:vote))

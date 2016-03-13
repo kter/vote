@@ -18,10 +18,6 @@ class VotesController < ApplicationController
     @speech = Speech.last
   end
 
-  # GET /votes/1/edit
-  def edit
-  end
-
   # POST /votes
   # POST /votes.json
   def create
@@ -40,7 +36,7 @@ class VotesController < ApplicationController
       redirect_to root_path
     else
       flash.now[:danger] = @vote1.errors ? @vote1.errors : @vote2.errors
-      render new
+      render :new
     end
   end
 
