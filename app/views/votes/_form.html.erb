@@ -1,17 +1,4 @@
-<% @vote.hold_date = @hold_date %>
-<%= form_for(@vote) do |f| %>
-  <% if @vote.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@vote.errors.count, "error") %> prohibited this vote from being saved:</h2>
-
-      <ul>
-      <% @vote.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
+<%= form_for(:vote, url: votes_path) do |f| %>
   <div class="field">
     <%= f.label :hold_date %><br>
     <%= @hold_date %>
@@ -23,11 +10,11 @@
   </div>
   <div class="field">
     <%= f.label :score %><br>
-    <%= f.number_field :score %>
+    <%= f.number_field :score1, min: 1, max: 3 %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment1 %>
   </div>
 
   <div class="field">
@@ -36,11 +23,11 @@
   </div>
   <div class="field">
     <%= f.label :score %><br>
-    <%= f.number_field :score %>
+    <%= f.number_field :score2, min: 1, max: 3 %>
   </div>
   <div class="field">
     <%= f.label :comment %><br>
-    <%= f.text_area :comment %>
+    <%= f.text_area :comment2 %>
   </div>
 
   <div class="actions">

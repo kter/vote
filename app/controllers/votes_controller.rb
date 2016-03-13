@@ -14,31 +14,31 @@ class VotesController < ApplicationController
 
   # GET /votes/new
   def new
-    @vote = Vote.new
     @hold_date = Speech.last.hold_date
     @speech = Speech.last
-  end
-
-  # GET /votes/1/edit
-  def edit
   end
 
   # POST /votes
   # POST /votes.json
   def create
-    @vote = Vote.new(vote_params)
+    @vote1 = Vote.new
+    @vote2 = Vote.new
 
-    @vote.hold_date = Speech.first.hold_date
-    @vote.presenter = params[:presenter]
+    @vote1.hold_date = @vote2.hold_date =  Speech.first.hold_date
+    @vote1.presenter = params[:vote][:presenter1]
+    @vote2.presenter = params[:vote][:presenter2]
+    @vote1.score = params[:vote][:score1]
+    @vote2.score = params[:vote][:score2]
+    @vote1.comment = params[:vote][:comment1]
+    @vote2.comment = params[:vote][:comment2]
 
-    respond_to do |format|
-      if @vote.save
-        format.html { redirect_to @vote, notice: 'Vote was successfully created.' }
-        format.json { render :show, status: :created, location: @vote }
-      else
-        format.html { render :new }
-        format.json { render json: @vote.errors, status: :unprocessable_entity }
-      end
+    if @vote1.save && @vote2.save
+      redirect_to root_path
+    else
+      flash.now[:danger] = @vote1.errors ? @vote1.errors : @vote2.errors
+      @hold_date = Speech.last.hold_date
+      @speech = Speech.last
+      render new_vote_path
     end
   end
 
