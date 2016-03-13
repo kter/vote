@@ -54,7 +54,7 @@ class VotesControllerTest < ActionController::TestCase
     assert_redirected_to votes_path
   end
 
-  test "should with invalid data" do
+  test "should fail with invalid score" do
       post :create, vote: {
         comment1: @vote3.comment,
         comment2: @vote4.comment,
