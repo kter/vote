@@ -15,4 +15,14 @@ class VoteTest < ActiveSupport::TestCase
     assert_not @vote.valid?
   end
 
+  test "score should not be  grather than or equal to 1" do
+    @vote.score = 0
+    assert_not @vote.valid?
+  end
+
+  test "score should not be less than or equal to 3" do
+    @vote.score = 4
+    assert_not @vote.valid?
+  end
+
 end
