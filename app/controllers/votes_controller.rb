@@ -23,10 +23,11 @@ class VotesController < ApplicationController
   def create
     @vote1 = Vote.new
     @vote2 = Vote.new
+    @speech = Speech.last
 
     @vote1.hold_date = @vote2.hold_date =  Speech.first.hold_date
-    @vote1.presenter = params[:vote][:presenter1]
-    @vote2.presenter = params[:vote][:presenter2]
+    @vote1.presenter = @speech.presenter1
+    @vote2.presenter = @speech.presenter2
     @vote1.score = params[:vote][:score1]
     @vote2.score = params[:vote][:score2]
     @vote1.comment = params[:vote][:comment1]
