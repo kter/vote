@@ -29,3 +29,31 @@ Speech.create!(
   theme1: "theme of kiso",
   theme2: "theme of tama"
 )
+
+Vote.create!(
+  hold_date: "2016-04-05",
+  presenter: "kiso",
+  score: 3,
+  comment: "comment for kiso"
+)
+
+Vote.create!(
+  hold_date: "2016-04-05",
+  presenter: "tama",
+  score: 3,
+  comment: "comment for tama"
+)
+
+Vote.create!(
+  hold_date: "2016-04-05",
+  presenter: "kiso",
+  score: 1,
+  comment: "comment for kiso 2"
+)
+
+Vote.create!(
+  hold_date: "2016-04-05",
+  presenter: "tama",
+  score: 1,
+  comment: "comment for tama 2"
+)
