@@ -16,8 +16,16 @@
 </p>
 
 <p>
-  <strong>Score:</strong>
+  <strong>Total Score:</strong>
   <%= @presenter1_score %>
+</p>
+
+<p>
+  <strong>Comments:</strong><br />
+  <% @presenter1_comments.each do | presenter1_comment | %>
+    <%= presenter1_comment.comment %>
+    <br />
+  <% end %>
 </p>
 
 <p>
@@ -31,8 +39,16 @@
 </p>
 
 <p>
-  <strong>Score:</strong>
+  <strong>Total Score:</strong>
   <%= @presenter2_score %>
+</p>
+
+<p>
+  <strong>Comments:</strong><br />
+  <% @presenter2_comments.each do | presenter2_comment | %>
+    <%= presenter2_comment.comment %>
+    <br />
+  <% end %>
 </p>
 
 <%= link_to 'Edit', edit_speech_path(@speech) %> |

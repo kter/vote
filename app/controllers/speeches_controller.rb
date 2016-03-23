@@ -12,6 +12,9 @@ class SpeechesController < ApplicationController
   def show
     @presenter1_score = Vote.where(hold_date: @speech.hold_date, presenter: @speech.presenter1).sum(:score)
     @presenter2_score = Vote.where(hold_date: @speech.hold_date, presenter: @speech.presenter2).sum(:score)
+
+    @presenter1_comments = Vote.where(hold_date: @speech.hold_date, presenter: @speech.presenter1).select("comment")
+    @presenter2_comments = Vote.where(hold_date: @speech.hold_date, presenter: @speech.presenter2).select("comment")
   end
 
   # GET /speeches/new
