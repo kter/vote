@@ -12,6 +12,7 @@
 !/log/.keep
 /tmp
 Session.vim
+.byebug_history
 
 # sqlite3
 /db/*.sqlite3
