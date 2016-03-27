@@ -72,4 +72,34 @@ class VotesControllerTest < ActionController::TestCase
       }
       assert_template 'votes/new'
   end
+
+  test "should redirect edit when not logged in" do
+    get :edit, id: @vote
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect index when not logged in" do
+    get :index
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect show when not logged in" do
+    get :show, id: @vote
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect update when not logged in" do
+    patch :update, id: @vote, vote: { comment: @vote.comment, hold_date: @vote.hold_date, presenter: @vote.presenter, score: @vote.score }
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect destroy when not logged in" do
+    delete :destroy, id: @vote
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
 end

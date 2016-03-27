@@ -52,4 +52,28 @@ class SpeechesControllerTest < ActionController::TestCase
 
     assert_redirected_to speeches_path
   end
+
+  test "should redirect new when not logged in" do
+    get :new
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect create when not logged in" do
+    post :create, speech: { hold_date: @speech.hold_date, presenter1: @speech.presenter1, presenter2: @speech.presenter2, theme1: @speech.theme1, theme2: @speech.theme2 }
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect edit, update when not logged in" do
+    patch :update, id: @speech, speech: { hold_date: @speech.hold_date, presenter1: @speech.presenter1, presenter2: @speech.presenter2, theme1: @speech.theme1, theme2: @speech.theme2 }
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect destroy when not logged in" do
+    delete :destroy, id: @speech
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
 end
