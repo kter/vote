@@ -1,5 +1,6 @@
 class VotesController < ApplicationController
   before_action :set_vote, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:edit, :index, :show, :update, :destroy]
 
   # GET /votes
   # GET /votes.json

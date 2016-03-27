@@ -6,9 +6,11 @@ class VotesControllerTest < ActionController::TestCase
     @vote2 = votes(:two)
     @vote3 = votes(:three)
     @vote4 = votes(:four)
+    @user = users(:miku)
   end
 
   test "should get index" do
+    log_in_as(@user)
     get :index
     assert_response :success
     assert_not_nil assigns(:votes)
@@ -37,16 +39,19 @@ class VotesControllerTest < ActionController::TestCase
   end
 
   test "should show vote" do
+    log_in_as(@user)
     get :show, id: @vote
     assert_response :success
   end
 
   test "should update vote" do
+    log_in_as(@user)
     patch :update, id: @vote, vote: { comment: @vote.comment, hold_date: @vote.hold_date, presenter: @vote.presenter, score: @vote.score }
     assert_redirected_to vote_path(assigns(:vote))
   end
 
   test "should destroy vote" do
+    log_in_as(@user)
     assert_difference('Vote.count', -1) do
       delete :destroy, id: @vote
     end
@@ -66,5 +71,35 @@ class VotesControllerTest < ActionController::TestCase
         score2: @vote4.score
       }
       assert_template 'votes/new'
+  end
+
+  test "should redirect edit when not logged in" do
+    get :edit, id: @vote
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect index when not logged in" do
+    get :index
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect show when not logged in" do
+    get :show, id: @vote
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect update when not logged in" do
+    patch :update, id: @vote, vote: { comment: @vote.comment, hold_date: @vote.hold_date, presenter: @vote.presenter, score: @vote.score }
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
+  end
+
+  test "should redirect destroy when not logged in" do
+    delete :destroy, id: @vote
+    assert_not flash.empty?
+    assert_redirected_to admin_login_path
   end
 end
