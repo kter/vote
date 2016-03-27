@@ -6,9 +6,11 @@ class VotesControllerTest < ActionController::TestCase
     @vote2 = votes(:two)
     @vote3 = votes(:three)
     @vote4 = votes(:four)
+    @user = users(:miku)
   end
 
   test "should get index" do
+    log_in_as(@user)
     get :index
     assert_response :success
     assert_not_nil assigns(:votes)
@@ -37,16 +39,19 @@ class VotesControllerTest < ActionController::TestCase
   end
 
   test "should show vote" do
+    log_in_as(@user)
     get :show, id: @vote
     assert_response :success
   end
 
   test "should update vote" do
+    log_in_as(@user)
     patch :update, id: @vote, vote: { comment: @vote.comment, hold_date: @vote.hold_date, presenter: @vote.presenter, score: @vote.score }
     assert_redirected_to vote_path(assigns(:vote))
   end
 
   test "should destroy vote" do
+    log_in_as(@user)
     assert_difference('Vote.count', -1) do
       delete :destroy, id: @vote
     end
