@@ -1,5 +1,6 @@
 class SpeechesController < ApplicationController
   before_action :set_speech, only: [:show, :edit, :update, :destroy]
+  before_action :logged_in_user, only: [:new, :create, :edit, :update, :destroy]
 
   # GET /speeches
   # GET /speeches.json
