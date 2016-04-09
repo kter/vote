@@ -37,7 +37,7 @@ class VotesController < ApplicationController
     if @vote1.save && @vote2.save
       redirect_to root_path
     else
-      flash.now[:danger] = @vote1.errors ? @vote1.errors : @vote2.errors
+      flash.now[:danger] = @vote1.errors.full_messages ? @vote1.errors.full_messages : @vote2.errors.full_messages
       @hold_date = Speech.last.hold_date
       @speech = Speech.last
       render new_vote_path
